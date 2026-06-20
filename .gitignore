@@ -1,0 +1,23 @@
+# MATLAB and Simulink generated files
+*.mat
+*.slxc
+*.autosave
+*.asv
+*.m~
+slprj/
+**/slprj/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+~$*
+
+# OS/editor metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local verification artifacts
+verification/

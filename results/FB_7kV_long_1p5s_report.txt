@@ -1,0 +1,18 @@
+FB 7 kV long-duration switching result (1.5 s)
+
+Final-window fundamental: 6.999289 kVpk
+Final-window THD: 2.063224 %
+Capacitors at window start min/mean/max: 1.472558 / 1.499909 / 1.528981 kV
+Capacitors at window end min/mean/max: 1.472896 / 1.499851 / 1.530263 kV
+Final-window capacitor range: 1.462803 to 1.534153 kV
+Worst individual capacitor ripple: 61.993547 Vpp
+Peak arm/circulating current: 487.874606 / 218.857994 A
+Full-run capacitor range: 1.459174 to 1.558965 kV
+Full-run peak arm/circulating current: 488.572856 / 219.841867 A
+Final-window capacitor mean slope: +0.830882 V/s
+Mean DC/AC power: 5.450546 / 5.267590 MW
+Raw/corrected power residual: 3.356654 / 1.663852 %
+Negative state samples final/total: 117749 / 551073
+Maximum negative count: 2
+Minimum state-derived arm voltage: -3.009457 kV
+NaN or Inf present: 0

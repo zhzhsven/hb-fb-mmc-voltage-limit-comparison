@@ -1,0 +1,11 @@
+Scaled 10 kV MMC end-to-end verification: PASS
+FB fundamental: 6.771237 kVpk (error -3.268%)
+FB arm-reference range: -2.468459 to 12.626311 kV
+FB negative count/state samples: 2 / 27344
+FB minimum state-derived arm voltage: -3.044862 kV
+FB capacitor range/mean: 1.468964 to 1.554106 / 1.510250 kV
+FB capacitor mean start/end: 1.522168 / 1.498782 kV
+FB capacitor mean slope: -306.202619 V/s
+i_cap=s*i_arm sign agreement: 1.000000
+HB limited peak/fundamental: 5.000000 / 5.323190 kV
+Charge/discharge selection indices: [1 6 9] / [4 7 10]
