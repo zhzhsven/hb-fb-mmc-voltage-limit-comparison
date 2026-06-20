@@ -299,12 +299,18 @@ end
 
 function makeCapabilityDiagnostic(projectRoot,Vdc,VarmHB,VarmFB)
 requiredPositiveArm = Vdc/2+7e3;
-figure('Color','w','Position',[100 100 900 520]);
-values = [VarmHB,VarmFB,requiredPositiveArm]/1e3;
-bar(categorical({'FB at 1 kV/cell','FB at 1.5 kV/cell','7 kV required'}),values);
-ylabel('Positive arm capability (kV)'); grid on;
-title('Full-bridge topology still requires sufficient installed arm voltage');
-text(1:3,values+0.3,compose('%.1f kV',values),'HorizontalAlignment','center');
+figure('Color','w','Position',[100 100 1100 650]);
+values = [VarmHB,VarmFB]/1e3;
+bars = bar(1:2,values,0.62,'FaceColor','flat');
+bars.CData = [0.85 0.33 0.10;0.47 0.67 0.19];
+xticks(1:2); xticklabels({'10 cells at 1.0 kV/cell','10 cells at 1.5 kV/cell'});
+ylabel('Available positive arm voltage (kV)'); grid on; ylim([0 17]);
+yline(requiredPositiveArm/1e3,'--k','+12 kV required', ...
+    'LineWidth',1.5,'LabelHorizontalAlignment','left');
+title('Installed positive arm-voltage requirement for 7 kV phase-voltage operation');
+subtitle('Vdc = 10 kV; required arm-reference range is -2 kV to +12 kV');
+text(1:2,values+0.35,compose('%.1f kV',values), ...
+    'HorizontalAlignment','center','FontWeight','bold');
 exportgraphics(gcf,fullfile(projectRoot,'figures', ...
     'fb_installed_voltage_diagnostic.png'),'Resolution',180); close(gcf);
 end

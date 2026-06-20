@@ -11,16 +11,13 @@ negative submodule insertion determine the maximum achievable AC phase voltage?
 
 For one phase leg,
 
-\[
-v_{phase}=\frac{v_{lower}-v_{upper}}{2},
-\]
+`v_phase = (v_lower - v_upper) / 2`
 
 with arm references
 
-\[
-v_{upper,ref}=\frac{V_{dc}}{2}-v_{phase,ref},\qquad
-v_{lower,ref}=\frac{V_{dc}}{2}+v_{phase,ref}.
-\]
+`v_upper_ref = Vdc/2 - v_phase_ref`
+
+`v_lower_ref = Vdc/2 + v_phase_ref`
 
 The models contain explicit switching IGBTs and antiparallel diodes, individual
 submodule capacitors, arm reactors, nearest-level modulation (NLM), and
@@ -30,7 +27,7 @@ source is used to create the reported output.
 ## System parameters
 
 | Parameter | HB-MMC | FB-MMC |
-|---|---:|---:|
+| --- | ---: | ---: |
 | DC link | 10 kV | 10 kV |
 | Submodules per arm | 10 | 10 |
 | Capacitor reference | 1.0 kV | 1.5 kV |
@@ -44,9 +41,7 @@ source is used to create the reported output.
 An HB submodule produces only 0 or +Vc. Both arm references must remain
 nonnegative, giving the conventional limit
 
-\[
-|v_{phase}|\lesssim V_{dc}/2.
-\]
+`|v_phase| <= Vdc/2`
 
 For this 10 kV DC link, the HB command is therefore limited to +/-5 kV. The
 7 kV command is visibly clipped and cannot be tracked as a sinusoidal 7 kV
@@ -54,10 +49,9 @@ phase voltage.
 
 An FB submodule produces +Vc, 0, or -Vc. At a 7 kV phase-voltage peak,
 
-\[
-v_{upper,ref}=5-7=-2\text{ kV},\qquad
-v_{lower,ref}=5+7=12\text{ kV}.
-\]
+`v_upper_ref = 5 - 7 = -2 kV`
+
+`v_lower_ref = 5 + 7 = 12 kV`
 
 The FB converter therefore needs both negative insertion capability and enough
 installed positive arm voltage. Ten 1 kV cells would provide only 10 kV and
@@ -66,21 +60,15 @@ would still be insufficient. Ten 1.5 kV cells provide +/-15 kV, making the
 
 Inserted counts follow the same distinction. For HB,
 
-\[
-k_{upper}+k_{lower}\approx N=10.
-\]
+`k_upper + k_lower ~= N = 10`
 
 For FB, counts are signed and approximately satisfy
 
-\[
-(k_{upper}+k_{lower})V_{c,FB}\approx V_{dc},
-\]
+`(k_upper + k_lower) * Vc_FB ~= Vdc`
 
 so
 
-\[
-k_{upper}+k_{lower}\approx 10/1.5=6.67.
-\]
+`k_upper + k_lower ~= 10 / 1.5 = 6.67`
 
 The absolute FB counts do not need to sum to N.
 
@@ -97,9 +85,16 @@ Detailed numerical results are kept in the text and CSV files under `results/`.
 
 ## Important figures
 
-### Installed arm-voltage requirement
+### Installed positive arm-voltage requirement for 7 kV phase-voltage operation
 
 ![Installed arm-voltage diagnostic](figures/fb_installed_voltage_diagnostic.png)
+
+To produce a 7 kV phase-voltage peak with a 10 kV DC link, the lower arm must
+reach about +12 kV while the upper arm must reach about -2 kV. Negative
+insertion alone is therefore not sufficient: the FB converter also needs
+enough installed positive arm voltage. Ten cells at 1.0 kV/cell provide only
+10 kV and cannot meet the +12 kV requirement. Ten cells at 1.5 kV/cell provide
+15 kV, making the operating point feasible.
 
 ### HB 7 kV limiter
 
@@ -120,6 +115,18 @@ Detailed numerical results are kept in the text and CSV files under `results/`.
 ### FB 1.5 s output voltage and current
 
 ![FB long-run output](figures/fb_7kV_long_output_voltage_current.png)
+
+Only the final 1.2-1.5 s window is shown so the steady-state voltage and current
+waveforms remain readable.
+
+### FB capacitor-voltage balancing at 7 kV
+
+![All FB submodule capacitor voltages](figures/capacitor_voltages_7kV.png)
+
+The individual FB submodule capacitor voltages remain clustered around the
+1.5 kV target. Their bounded spread demonstrates effective Sort-and-Select
+balancing in the 7 kV case and shows that negative insertion is achieved
+without losing capacitor-voltage balance.
 
 ## How to run
 
