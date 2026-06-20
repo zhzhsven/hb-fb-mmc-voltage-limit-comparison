@@ -85,11 +85,11 @@ tp = fullTime(plotIndex);
 
 figure('Color','w','Position',[100 100 1300 800]);
 tiledlayout(2,1,'TileSpacing','compact');
-nexttile; plot(tp,data.v_phase_actual.data(plotIndex,:)/1e3); grid on;
-ylabel('kV'); title('FB 7 kV long run: load phase voltages');
+nexttile; plot(t,v/1e3,'LineWidth',0.8); grid on; xlim([1.2 1.5]);
+ylabel('kV'); title('FB 7 kV: load phase voltages (final 0.3 s)');
 legend('v_{aN}','v_{bN}','v_{cN}','Location','bestoutside');
-nexttile; plot(tp,data.i_load.data(plotIndex,:)/1e3); grid on;
-xlabel('Time (s)'); ylabel('kA'); title('Load currents');
+nexttile; plot(t,i/1e3,'LineWidth',0.8); grid on; xlim([1.2 1.5]);
+xlabel('Time (s)'); ylabel('kA'); title('Load currents (final 0.3 s)');
 legend('i_a','i_b','i_c','Location','bestoutside');
 exportgraphics(gcf,fullfile(project_root,'figures', ...
     'fb_7kV_long_output_voltage_current.png'),'Resolution',180); close(gcf);
