@@ -87,7 +87,7 @@ Detailed numerical results are kept in the text and CSV files under `results/`.
 
 ### Installed positive arm-voltage requirement for 7 kV phase-voltage operation
 
-![Installed arm-voltage diagnostic](figures/fb_installed_voltage_diagnostic.png)
+![Installed arm-voltage diagnostic](figures/fb_installed_voltage_diagnostic_readme_refresh.png)
 
 To produce a 7 kV phase-voltage peak with a 10 kV DC link, the lower arm must
 reach about +12 kV while the upper arm must reach about -2 kV. Negative
@@ -98,30 +98,30 @@ enough installed positive arm voltage. Ten cells at 1.0 kV/cell provide only
 
 ### HB 7 kV limiter
 
-![HB command limiter](figures/hb_command_limiter_7kV.png)
+![HB command limiter](figures/hb_command_limiter_7kV_readme_refresh.png)
 
 ### HB versus FB output at the 7 kV command
 
-![HB versus FB output](figures/hb_fb_7kV_output.png)
+![HB versus FB output](figures/hb_fb_7kV_output_readme_refresh.png)
 
 ### FB signed inserted-count sums
 
-![FB signed inserted-count sums](figures/fb_leg_signed_count_sums_7kV.png)
+![FB signed inserted-count sums](figures/fb_leg_signed_count_sums_7kV_readme_refresh.png)
 
 ### HB inserted-count sums
 
-![HB inserted-count sums](figures/hb_leg_inserted_count_sums_7kV.png)
+![HB inserted-count sums](figures/hb_leg_inserted_count_sums_7kV_readme_refresh.png)
 
 ### FB 1.5 s output voltage and current
 
-![FB long-run output](figures/fb_7kV_long_output_voltage_current.png)
+![FB long-run output](figures/fb_7kV_long_output_voltage_current_readme_refresh.png)
 
 Only the final 1.2-1.5 s window is shown so the steady-state voltage and current
 waveforms remain readable.
 
 ### FB capacitor-voltage balancing at 7 kV
 
-![All FB submodule capacitor voltages](figures/capacitor_voltages_7kV.png)
+![All FB submodule capacitor voltages](figures/capacitor_voltages_7kV_readme_refresh.png)
 
 The individual FB submodule capacitor voltages remain clustered around the
 1.5 kV target. Their bounded spread demonstrates effective Sort-and-Select
